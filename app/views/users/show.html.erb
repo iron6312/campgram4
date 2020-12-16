@@ -1,0 +1,35 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "#{@user.nickname}さんの情報"%>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">ニックネーム</th>
+            <td class="table__col2"><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">キャンプ歴</th>
+            <td class="table__col2"><%= @user.camp_history %>年</td>
+          </tr>
+          <tr>
+            <th class="table__col1">年齢</th>
+            <td class="table__col2"><%= @user.age %>歳</td>
+          </tr>
+          <tr>
+            <th class="table__col1">好きなキャンプの種類</th>
+            <td class="table__col2"><%= @user.favorite_camp_type %>キャンプ</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "#{@user.nickname}さんのキャンプ画像" %>
+      </h2>
+      <div class="user__card">
+        <%= render partial: 'posts/post', collection: @user.post %>
+      </div>
+    </div>
+  </div>
+</div>

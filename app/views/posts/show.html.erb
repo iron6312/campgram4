@@ -2,51 +2,61 @@
   <div class="inner">
     <div class="prototype__wrapper">
       <p class="prototype__hedding">
-        <%= "プロトタイプのタイトル"%>
+        <%= @post.title %>
       </p>
-      <%= link_to "by プロトタイプの投稿者", root_path, class: :prototype__user %>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <%= link_to "by #{@post.user.nickname}", root_path, class: :prototype__user %>
+      <% if current_user == @post.user %>
         <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: :prototype__btn %>
-          <%= link_to "削除する", root_path, class: :prototype__btn %>
+          <%= link_to "編集する", edit_post_path(@post), class: :prototype__btn %>
+          <%= link_to "削除する", post_path(@post), method: :delete, class: :prototype__btn %>
         </div>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <% end %>
       <div class="prototype__image">
-        <%= image_tag "プロトタイプの画像" %>
+        <%= image_tag @post.image %>
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
-          <p class="detail__title">キャッチコピー</p>
+          <p class="detail__title">キャンプ場</p>
           <p class="detail__message">
-            <%= "プロトタイプのキャッチコピー" %>
+            <%= @post.description %>
           </p>
         </div>
         <div class="prototype__detail">
-          <p class="detail__title">コンセプト</p>
+          <p class="detail__title">   ココがおすすめ！！</p>
           <p class="detail__message">
-            <%= "プロトタイプのコンセプト" %>
+            <%= @post.recomended %>
           </p>
         </div>
       </div>
       <div class="prototype__comments">
-        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-          <%# <%= form_with local: true do |f|%>
+        <% if user_signed_in? %>
+          <%= form_with model: [@post, @comment], local: true do |f|%>
             <div class="field">
-              <%# <%= f.label :hoge, "コメント" %><br />
-              <%# <%= f.text_field :hoge %>
+              <%= f.label :text, "コメント" %><br />
+              <%= f.text_field :text %>
             </div>
             <div class="actions">
-              <%# <%= f.submit "送信する", class: :form__btn  %>
+              <%= f.submit "送信する", class: :form__btn  %>
             </div>
-          <%# <% end %> 
-        <%# // ログインしているユーザーには上記を表示する %>
+          <% end %> 
+        <% end %>
         <ul class="comments_lists">
-          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+          <% @comments.each do |comment| %>
             <li class="comments_list">
-              <%# <%= " コメントのテキスト "%>
-              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
+              <%= comment.text %>
+              <%= link_to "（#{comment.user.nickname}）", root_path, class: :comment_user %>
             </li>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+          <% end %>
+          <h3>いいね件数: <%= @post.likes.count %></h3>
+          <% if current_user.already_liked?(@post) %>
+            <%= button_to 'いいねを取り消す', post_like_path(@post), method: :delete %>
+          <% else %>
+            <%= button_to 'いいね', post_likes_path(@post) %>
+          <% end %>
+          <h2>いいねしたユーザー</h2>
+          <% @post.liked_users.each do |user| %>
+            <li><%= user.nickname %></li>
+          <% end %>
         </ul>
       </div>
     </div>
