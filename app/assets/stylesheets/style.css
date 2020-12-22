@@ -17,7 +17,7 @@ div {
 
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
-  color: #3b4043;
+  color: deeppink;
 }
 
 li {
@@ -31,13 +31,13 @@ img {
 
 a {
   text-decoration: none;
-  color: #3b4043;
+  color: yellow;
 }
 
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
+  background-color: black;
   margin-bottom: 48px;
   padding: 20px 0;
 
@@ -52,29 +52,29 @@ a {
   justify-content: space-between;
 }
 .logo {
-  width: 200px;
+  width: 150px;
 }
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: deeppink;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px deeppink solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  background: deeppink;
 }
 
 .nav__logout{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: deeppink;
   text-decoration: none;
   user-select: none;
 }
@@ -106,8 +106,8 @@ a {
   color: #fff;
   text-decoration: none;
   user-select: none;
-  background: #87CEFA;
-  border: 1px #87CEFA solid;
+  background: deeppink;
+  border: 1px deeppink solid;
   border-radius: 3px;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
   transition: 0.2s ease;
@@ -156,7 +156,7 @@ a {
 .card__user {
   display: block;
   font-size: 12px;
-  color: #999;
+  color: yellow;
   text-align: right;
   text-decoration: underline;
 }
@@ -173,7 +173,7 @@ a {
 .prototype__user{
   display: block;
   font-size: 16px;
-  color: #999;
+  color: yellow;
   text-align: center;
   text-decoration: underline;
 }
@@ -201,17 +201,17 @@ a {
   display: block;
   padding: 0.4em 1.6em;
   font-size: 0.4em;
-  color: #999;
+  color:deeppink;
   text-decoration: none;
   user-select: none;
-  border: 1px #999 solid;
+  border: 1px deeppink solid;
   border-radius: 3px;
   transition: 0.4s ease;
   margin: 0 4px;
 }
 .prototype__btn:hover{
   color: #fff;
-  background: #999;
+  background:yellow;
 }
 
 .prototype__comments{
@@ -249,13 +249,14 @@ a {
   font-weight: bold;
   background: #fafafa;
   border-collapse: collapse;
-  border: 1px solid #f5f5f5;
+  border: 1px solid black;
   width: 30%;
   padding: 8px;
 }
 .table__col2{
   text-align: left;
-  border: 1px solid #f5f5f5;
+  border: 1px solid black;
+  background: #fafafa;
   border-collapse: collapse;
   width: 70%;
   padding: 16px 8px;
@@ -269,7 +270,7 @@ a {
 /* フッター */
 
 .footer {
-  background-color: #999;
+  background-color:black;
   padding: 10px 0;
 }
 .copyright {
@@ -320,4 +321,8 @@ a {
   .table{
     width: 100%;
   }
+}
+.image-takibi {
+  background-image: url(/images/takibi.png);
+  background-size:  cover;
 }
