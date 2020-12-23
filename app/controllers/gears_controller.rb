@@ -31,7 +31,7 @@ class GearsController < ApplicationController
 
   private
   def gear_params
-    params.require(:gear).permit(:content, images: [])
+    params.require(:gear).permit(:content)
   end
 
   def set_gear

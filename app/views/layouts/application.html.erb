@@ -40,34 +40,17 @@
         <p class="copyright"></p>
       </footer>
     </div>
-    <script>
-          var i = 1 ;
-          function addForm() {
-            var input_data = document.createElement('input');
-            input_data.type = 'text';
-            input_data.id = 'inputform_' + i;
-            input_data.placeholder = 'フォーム-' + i;
-            var parent = document.getElementById('form_area');
-            parent.appendChild(input_data);
-
-            var button_data = document.createElement('button');
-            button_data.id = i;
-            button_data.onclick = function(){deleteBtn(this);}
-            button_data.innerHTML = '削除';
-            var input_area = document.getElementById(input_data.id);
-            parent.appendChild(button_data);
-
-            i++ ;
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type="text/javascript">
+      $(document).on("click", ".add", function() {
+          $(this).parent().clone(true).insertAfter($(this).parent());
+      });
+      $(document).on("click", ".del", function() {
+          var target = $(this).parent();
+          if (target.parent().children().length > 1) {
+              target.remove();
           }
-
-          function deleteBtn(target) {
-            var target_id = target.id;
-            var parent = document.getElementById('form_area');
-            var ipt_id = document.getElementById('inputform_' + target_id);
-            var tgt_id = document.getElementById(target_id);
-            parent.removeChild(ipt_id);
-            parent.removeChild(tgt_id);	
-          }
+      });
     </script>
   </body>
 </html>
