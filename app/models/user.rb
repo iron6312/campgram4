@@ -12,7 +12,10 @@ class User < ApplicationRecord
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
-
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,}+\z/i.freeze
+  validates :password, format: { with: VALID_PASSWORD_REGEX }
+  validates :email, uniqueness: { case_sensitive: false }
+  validates :password, :password_confirmation, confirmation: true
   with_options presence: true do
     validates :nickname
     validates :age
