@@ -1,24 +1,12 @@
-# README
+・campgram4
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・ユーザーが新規投稿でキャンプ場の情報を発信できる。投稿に関してコメントやいいねができる。自身でキャンプに行くときに忘れ物を防ぐためのチェックができる。ログイン、ログアウトができる。新規登録時の公表可能部分をユーザーページで参照する
+・
+・
+・
+・
+・
+・
+・
+・
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
